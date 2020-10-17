@@ -22,7 +22,7 @@ generateEl.addEventListener('click', () => {
 	const hasNumber = numbersEl.checked;
 	const hasSymbol = symbolsEl.checked;
 	
-	resultEl.innerText= generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+	resultEl.innerText =generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
 });
 function generatePassword(lower, upper, number, symbol, length) {
 	let generatedPassword = '';
@@ -34,7 +34,8 @@ function generatePassword(lower, upper, number, symbol, length) {
   }
   for(let i=0; i<length; i+=typesCount) {
 		typesArr.forEach(type => {
-			const funcName = Object.keys(type)[0];
+      const funcName = Object.keys(type)[0];
+      console.log(funcName, 'funcName')
 			generatedPassword += randomFunc[funcName]();
 		});
   }
@@ -44,18 +45,18 @@ function generatePassword(lower, upper, number, symbol, length) {
 }
 
 function getRandomLower(){
-  return String.fromCharCode (math.floor(math.random() * 26) + 97);
+  return String.fromCharCode (Math.floor(Math.random() * 26) + 97);
 }
 function getRandomUpper(){
-  return String.fromCharCode (math.floor(math.random() * 26) + 65);
+  return String.fromCharCode (Math.floor(Math.random() * 26) + 65);
 }
 
 function getRandomNumber(){
-  return String.fromCharCode (math.floor(math.random() * 10) + 48);
+  return String.fromCharCode (Math.floor(Math.random() * 10) + 48);
 }
 function getRandomSymbol(){
   symbols= `!@#$%^&*()_+=?/>.<, ~`;
-  return symbols.fromCharCode (math.floor(math.random() * symbols.length));
+  return symbols.fromCharCode (Math.floor(Math.random() * symbols.length));
 }
 
 
