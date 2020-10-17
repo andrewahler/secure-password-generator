@@ -21,9 +21,15 @@ generateEl.addEventListener('click', () => {
   const hasUpper = uppercaseEl.checked;
   const hasNumber = numbersEl.checked;
   const hasSymbol = symbolsEl.checked;
-
+if(!hasLower&& !hasUpper&& !hasNumber&&  !hasSymbol){
+  passwordEl.innerText = "Please select at least one option!";
+}else{
   passwordEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+}
+  
 });
+
+
 function generatePassword(lower, upper, number, symbol, length) {
   console.log(lower, upper, number, symbol, length)
   let generatePass = '';
@@ -44,7 +50,7 @@ function generatePassword(lower, upper, number, symbol, length) {
       generatePass += getRandomNumber()
       i++
     }
-    if (Symbol && i < length) {
+    if (symbol && i < length) {
       generatePass += getRandomSymbol()
       i++
     }
