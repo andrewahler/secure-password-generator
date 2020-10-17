@@ -24,7 +24,12 @@ generateEl.addEventListener('click', () => {
 if(!hasLower&& !hasUpper&& !hasNumber&&  !hasSymbol){
   passwordEl.innerText = "Please select at least one option!";
 }else{
+  if(length<8 || length > 128){
+    passwordEl.innerText = "Please enter a valid length between 8 and 128!";
+  }
+  else{
   passwordEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+  }
 }
   
 });
